@@ -202,7 +202,9 @@
     overflow: hidden;
     position: relative;
     margin: 90px auto 100px auto;
+    scroll-snap-type: x mandatory;
     > * {
+      scroll-snap-align: start;
     }
     img {
       @media (max-width: 767px) {
@@ -212,7 +214,6 @@
     }
     @media (max-width: 767px) {
       margin: 8px auto 0px auto;
-      overflow-x: scroll;
     }
   }
   &__cities {
