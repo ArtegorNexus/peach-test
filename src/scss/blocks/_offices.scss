@@ -195,13 +195,18 @@
 .map-offices {
   margin: 0 auto;
   max-width: 1190px;
+  scroll-snap-type: y mandatory;
   @media (max-width: 767px) {
     max-width: 862px;
   }
   &__body {
+    scroll-snap-type: x mandatory;
     overflow: hidden;
     position: relative;
     margin: 90px auto 100px auto;
+    > * {
+      scroll-snap-align: start;
+    }
     img {
       @media (max-width: 767px) {
         width: 862px;

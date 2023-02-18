@@ -13,23 +13,23 @@ let nowReg = 0;
 
 console.log(cities[1]);
 
-const mapSwiper = (start, end) => {
-  let scrollPx = start - end;
-  if (map.clientWidth < mapImg.offsetWidth) {
-    event.preventDefault();
-    map.scrollLeft += scrollPx;
-    mapImg.scrollLeft += scrollPx;
-    mapMenu.scrollLeft += scrollPx;
-  }
-};
+// const mapSwiper = (start, end) => {
+//   let scrollPx = start - end;
+//   if (map.clientWidth < mapImg.offsetWidth) {
+//     event.preventDefault();
+//     map.scrollLeft += scrollPx;
+//     mapImg.scrollLeft += scrollPx;
+//     mapMenu.scrollLeft += scrollPx;
+//   }
+// };
 
-const handleStart = (event) => {
-  slideStartX = event.changedTouches[0].screenX;
-};
-const handleEnd = (event) => {
-  slideEndX = event.changedTouches[0].screenX;
-  mapSwiper(slideStartX, slideEndX);
-};
+// const handleStart = (event) => {
+//   slideStartX = event.changedTouches[0].screenX;
+// };
+// const handleEnd = (event) => {
+//   slideEndX = event.changedTouches[0].screenX;
+//   mapSwiper(slideStartX, slideEndX);
+// };
 
 const citiesChanger = (elem) => {
   let bySort = regionsName[nowReg - 1];
@@ -62,6 +62,6 @@ const toChangeRegion = (event) => {
   }
 };
 
-map.addEventListener('touchstart', (event) => handleStart(event));
-map.addEventListener('touchend', (event) => handleEnd(event));
+// map.addEventListener('touchstart', (event) => handleStart(event));
+// map.addEventListener('touchend', (event) => handleEnd(event));
 regions.addEventListener('click', (event) => toChangeRegion(event));
