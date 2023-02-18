@@ -3,6 +3,8 @@
 let map = document.querySelector('.map-offices__body');
 let mapImg = map.querySelector('img');
 let mapMenu = document.querySelector('.menu-offices-top__items');
+let slideStartX = 0;
+let slideEndX = 0;
 
 let regions = document.querySelector('.menu-offices-top__items');
 let cities = document.querySelectorAll('.map-offices__city');
@@ -11,13 +13,22 @@ let nowReg = 0;
 
 console.log(cities[1]);
 
-const mapSwiper = (event) => {
+const mapSwiper = (start, end) => {
+  let scrollPx = start - end;
   if (map.clientWidth < mapImg.offsetWidth) {
     event.preventDefault();
-    map.scrollLeft += event.deltaY;
-    mapImg.scrollLeft += event.deltaY;
-    mapMenu.scrollLeft += event.deltaY;
+    map.scrollLeft += scrollPx;
+    mapImg.scrollLeft += scrollPx;
+    mapMenu.scrollLeft += scrollPx;
   }
+};
+
+const handleStart = (event) => {
+  slideStartX = event.changedTouches[0].screenX;
+};
+const handleEnd = (event) => {
+  slideEndX = event.changedTouches[0].screenX;
+  mapSwiper(slideStartX, slideEndX);
 };
 
 const citiesChanger = (elem) => {
@@ -51,5 +62,6 @@ const toChangeRegion = (event) => {
   }
 };
 
-map.addEventListener('wheel', (event) => mapSwiper(event));
+map.addEventListener('touchstart', (event) => handleStart(event));
+map.addEventListener('touchend', (event) => handleEnd(event));
 regions.addEventListener('click', (event) => toChangeRegion(event));
