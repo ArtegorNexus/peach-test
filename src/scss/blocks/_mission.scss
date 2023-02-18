@@ -1,4 +1,11 @@
 .mission {
+  transform: translateY(70px);
+  opacity: 0;
+  transition: all 0.5s ease 0.5s;
+  &._active {
+    transform: translateY(00px);
+    opacity: 1;
+  }
   background-color: #a30c33;
   padding: 139px 0 140px 0;
   @media (max-width: 1023px) {
