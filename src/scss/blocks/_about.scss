@@ -1,0 +1,204 @@
+// about
+.about {
+  &__body {
+    margin-top: 100px;
+    @media (max-width: 1023px) {
+      margin-top: 80px;
+    }
+    @media (max-width: 767px) {
+      margin-top: 60px;
+    }
+  }
+  &__title {
+    span {
+      color: #b01736;
+    }
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 38.4px;
+    text-align: center;
+    padding: 99px 110px;
+    @media (max-width: 1023px) {
+      font-size: 24px;
+      line-height: 28.8px;
+      padding: 80px 88px;
+    }
+    @media (max-width: 767px) {
+      font-size: 16px;
+      line-height: 19.2px;
+      padding: 60px 66px;
+    }
+    @media (max-width: 479px) {
+      padding: 24px 5px;
+    }
+    background: #ffffff;
+    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.08);
+  }
+  &__items {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 0 110px;
+    @media (max-width: 1023px) {
+      padding: 0 80px;
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+    @media (max-width: 767px) {
+      padding: 0 50px;
+      margin-top: 65px;
+      margin-bottom: 65px;
+    }
+    @media (max-width: 479px) {
+      padding: 0 4px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    > * {
+      flex: 0 1 100%;
+    }
+    &:nth-child(1) {
+      flex: 0 1 33.3333%;
+      > * {
+        align-self: start;
+      }
+    }
+    &:nth-child(2) {
+      flex: 0 1 33.3333%;
+    }
+    &:nth-child(3) {
+      flex: 0 1 33.3333%;
+    }
+    &:nth-child(4) {
+      flex: 0 1 50%;
+      display: flex;
+      align-items: center;
+      > * {
+        margin-left: 50px;
+        margin-top: 80px;
+      }
+    }
+    &:nth-child(5) {
+      flex: 0 1 50%;
+      display: flex;
+      align-items: center;
+      > * {
+        margin-right: 50px;
+        margin-top: 80px;
+      }
+    }
+    @media (max-width: 767px) {
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      > * {
+        display: flex;
+        flex-wrap: wrap;
+        > * {
+          flex: 0 1 100%;
+        }
+        align-items: center;
+        justify-content: space-between;
+      }
+      &:nth-child(1) {
+        flex: 0 1 50%;
+        > * {
+          align-self: auto;
+        }
+      }
+      &:nth-child(2) {
+        flex: 0 1 50%;
+      }
+      &:nth-child(3) {
+        flex: 0 1 50%;
+      }
+      &:nth-child(4) {
+        flex: 0 1 50%;
+        > * {
+          margin: 0;
+          margin-left: 16px;
+        }
+      }
+      &:nth-child(5) {
+        flex: 0 1 100%;
+        > * {
+          margin: 0;
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+}
+.item-about {
+  &__body {
+  }
+  &__title {
+    display: flex;
+    align-items: center;
+    color: #a30c33;
+    font-size: 80px;
+    line-height: 64px;
+    @media (max-width: 1150px) {
+      font-size: 60px;
+      line-height: 48px;
+    }
+    @media (max-width: 900px) {
+      font-size: 40px;
+      line-height: 32px;
+    }
+    @media (max-width: 767px) {
+      justify-content: center;
+    }
+  }
+  &__arrow {
+    margin-right: 10px;
+    font-size: 64px;
+    font-weight: 900;
+    @media (max-width: 1150px) {
+      font-size: 60px;
+      margin-right: 6px;
+    }
+    @media (max-width: 900px) {
+      font-size: 40px;
+      margin-right: 4px;
+    }
+  }
+  &__plus {
+    font-size: 64px;
+    margin-left: 10px;
+    @media (max-width: 1150px) {
+      font-size: 60px;
+      margin-left: 6px;
+    }
+    @media (max-width: 900px) {
+      font-size: 40px;
+      margin-left: 4px;
+    }
+  }
+  &__subtitle {
+    line-height: 27px;
+    margin-top: 4px;
+    font-weight: 400;
+    &:last-child {
+      line-height: 21.6px;
+    }
+    @media (max-width: 767px) {
+      font-size: 16px;
+      line-height: 24px;
+      &:last-child {
+        line-height: 19.2px;
+      }
+    }
+  }
+}

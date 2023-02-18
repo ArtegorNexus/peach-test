@@ -1,0 +1,70 @@
+.mission {
+  background-color: #a30c33;
+  padding: 139px 0 140px 0;
+  @media (max-width: 1023px) {
+    padding: 110px 0 110px 0;
+  }
+  @media (max-width: 767px) {
+    padding: 70px 0 70px 0;
+  }
+  @media (max-width: 479px) {
+    padding: 32px 0 32px 0;
+  }
+  color: #ffffff;
+  max-width: 1250px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  &__body {
+    position: relative;
+    z-index: 2;
+  }
+  &__pattern {
+    position: absolute;
+    top: 9.9845%;
+    height: 80.031%;
+    @media (max-width: 1023px) {
+      width: 284px;
+    }
+    @media (max-width: 767px) {
+      width: 220px;
+    }
+    @media (max-width: 479px) {
+      width: 154px;
+    }
+  }
+  &__left-pattern {
+    left: -48px;
+  }
+  &__right-pattern {
+    right: -48px;
+  }
+  &__title {
+    text-align: center;
+    font-weight: 600;
+  }
+  &__subtitle {
+    text-align: center;
+    font-size: 32px;
+    line-height: 150%;
+    font-weight: 400;
+    margin-top: 40px;
+    @media (max-width: 1023px) {
+      margin-top: 30px;
+      font-size: 27px;
+    }
+    @media (max-width: 767px) {
+      br {
+        display: none;
+      }
+      margin-top: 20px;
+      font-size: 22px;
+      line-height: 28px;
+    }
+    @media (max-width: 479px) {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 20.8px;
+    }
+  }
+}

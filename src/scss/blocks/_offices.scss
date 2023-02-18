@@ -1,0 +1,384 @@
+.offices {
+  &__body {
+  }
+  &__top {
+    background: #ffffff;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    position: relative;
+    &_left {
+      @media (max-width: 1100px) {
+        margin-bottom: 16px;
+        flex: 0 1 100%;
+      }
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      z-index: 3;
+      img {
+        transition: transform 0.3s ease 0s;
+      }
+      &._active {
+        img {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+    &_right {
+    }
+  }
+  &__popup {
+    position: absolute;
+    z-index: 2;
+    top: 100px;
+    left: 0;
+  }
+  &__open-menu {
+    margin-right: 12px;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 600;
+  }
+  &__map {
+  }
+}
+.popup-offices {
+  font-family: 'Proxima Nova', sans-serif;
+  @media (max-width: 1023px) {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  @media (max-width: 767px) {
+    font-size: 14px;
+    line-height: 14px;
+  }
+  width: 100%;
+  padding: 30px 0px;
+  background-color: white;
+  font-size: 18px;
+  line-height: 20px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease 0s;
+  &._active {
+    display: block;
+    opacity: 1;
+  }
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
+    position: relative;
+    z-index: 3;
+    @media (max-width: 767px) {
+      gap: 0;
+    }
+  }
+
+  &__item {
+    @media (max-width: 1023px) {
+      flex: 0 1 calc(25% - 24px);
+    }
+    @media (max-width: 767px) {
+      flex: 0 1 calc(33.3333%);
+      &:last-child {
+        flex: 0 1 50%;
+      }
+    }
+    overflow: hidden;
+  }
+  &__region {
+    font-weight: 600;
+    display: inline-block;
+    align-items: center;
+    position: relative;
+    margin-top: 10px;
+    img {
+      position: absolute;
+      top: calc(50% - 2.5px);
+      right: -10px;
+      margin-left: 3px;
+      display: none;
+      @media (max-width: 767px) {
+        display: block;
+      }
+    }
+  }
+  &__cities {
+    font-weight: 400;
+    transition: height 0.3s ease 0s;
+    @media (max-width: 767px) {
+      height: 0;
+    }
+    &._active {
+      height: 100%;
+    }
+  }
+  &__city {
+    margin-top: 12px;
+  }
+  &__shadow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #ffffff, $alpha: 0.5);
+  }
+}
+
+.menu-offices-top {
+  @media (max-width: 767px) {
+    position: absolute;
+    top: 60px;
+    left: 6px;
+    max-width: 518px;
+    width: 100%;
+    overflow: hidden;
+  }
+  &__body {
+    @media (max-width: 767px) {
+      width: 518px;
+    }
+  }
+  &__items {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    @media (max-width: 1023px) {
+      gap: 16px;
+      width: 518px;
+    }
+  }
+  &__item {
+    position: relative;
+    font-size: 18px;
+    line-height: 20px;
+    @media (max-width: 1023px) {
+      font-size: 14px;
+      line-height: 16px;
+      height: 20px;
+    }
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: #a30c33;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      @media (max-width: 767px) {
+        bottom: -2px;
+        z-index: 2;
+      }
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background-color: #a30c33;
+      transition: all 0.3s ease 0s;
+    }
+    &._active {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+.map-offices {
+  margin: 0 auto;
+  max-width: 1190px;
+  @media (max-width: 767px) {
+    max-width: 862px;
+  }
+  &__body {
+    overflow: hidden;
+    position: relative;
+    margin: 90px auto 100px auto;
+    img {
+      @media (max-width: 767px) {
+        width: 862px;
+        height: 434.32px;
+      }
+    }
+    @media (max-width: 767px) {
+      margin: 8px auto 0px auto;
+    }
+  }
+  &__cities {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1190px;
+    height: 604px;
+    @media (max-width: 767px) {
+      width: 862px;
+      height: 434.32px;
+    }
+  }
+  &__city {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110px;
+    text-align: center;
+    display: none;
+    &._active {
+      display: inline-block;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      left: calc(50% - 4px);
+      top: -10px;
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      background-color: #444444;
+    }
+
+    &:nth-child(1) {
+      top: calc(223.9 / 604 * 100% + 10px);
+      left: calc(141.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(2) {
+      font-size: 12px;
+      top: calc(196.9 / 604 * 100% + 10px);
+      left: calc(179 / 1190 * 100% - 51px);
+    }
+    &:nth-child(3) {
+      font-size: 12px;
+      top: calc(245.91 / 604 * 100% + 10px);
+      left: calc(93.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(4) {
+      top: calc(276.08 / 604 * 100% + 10px);
+      left: calc(90.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(5) {
+      font-size: 16px;
+      top: calc(130.68 / 604 * 100% + 10px);
+      left: calc(149.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(6) {
+      font-size: 12px;
+      top: calc(123.58 / 604 * 100% + 10px);
+      left: calc(38.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(7) {
+      top: calc(378.58 / 604 * 100% + 10px);
+      left: calc(49.87 / 1190 * 100% - 51px);
+    }
+    &:nth-child(8) {
+      font-size: 12px;
+      top: calc(360.58 / 604 * 100% + 10px);
+      left: calc(108.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(9) {
+      top: calc(319.18 / 604 * 100% + 10px);
+      left: calc(81.37 / 1190 * 100% - 51px);
+    }
+    &:nth-child(10) {
+      font-size: 12px;
+      top: calc(260.04 / 604 * 100% + 10px);
+      left: calc(192.17 / 1190 * 100% - 51px);
+    }
+    &:nth-child(11) {
+      font-size: 12px;
+      top: calc(306.18 / 604 * 100% + 10px);
+      left: calc(187.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(12) {
+      font-size: 12px;
+      top: calc(298.18 / 604 * 100% + 10px);
+      left: calc(249.67 / 1190 * 100% - 51px);
+    }
+    &:nth-child(13) {
+      font-size: 12px;
+      top: calc(336.18 / 604 * 100% + 10px);
+      left: calc(253.67 / 1190 * 100% - 51px);
+    }
+    &:nth-child(14) {
+      font-size: 12px;
+      top: calc(364.58 / 604 * 100% + 10px);
+      left: calc(219.67 / 1190 * 100% - 51px);
+    }
+    &:nth-child(15) {
+      top: calc(362.58 / 604 * 100% + 10px);
+      left: calc(318.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(16) {
+      font-size: 12px;
+      top: calc(328.18 / 604 * 100% + 10px);
+      left: calc(320.9 / 1190 * 100% - 51px);
+    }
+    &:nth-child(17) {
+      top: calc(299.18 / 604 * 100% + 10px);
+      left: calc(379.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(18) {
+      font-size: 12px;
+      top: calc(311.18 / 604 * 100% + 10px);
+      left: calc(433 / 1190 * 100% - 51px);
+    }
+    &:nth-child(19) {
+      top: calc(362.58 / 604 * 100% + 10px);
+      left: calc(411.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(20) {
+      font-size: 12px;
+      top: calc(289.18 / 604 * 100% + 10px);
+      left: calc(326.4 / 1190 * 100% - 51px);
+    }
+    &:nth-child(21) {
+      top: calc(473.74 / 604 * 100% + 10px);
+      left: calc(458.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(22) {
+      font-size: 12px;
+      top: calc(453.74 / 604 * 100% + 10px);
+      left: calc(511 / 1190 * 100% - 51px);
+    }
+    &:nth-child(23) {
+      font-size: 12px;
+      top: calc(457.74 / 604 * 100% - 14px);
+      left: calc(577.5 / 1190 * 100% - 51px); // ТОМСК
+      &::after {
+        top: 14px;
+      }
+    }
+    &:nth-child(24) {
+      font-size: 12px;
+      top: calc(455.74 / 604 * 100% + 10px);
+      left: calc(634.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(25) {
+      top: calc(488.74 / 604 * 100% + 10px);
+      left: calc(690.5 / 1190 * 100% - 51px);
+    }
+    &:nth-child(26) {
+      font-size: 16px;
+      top: calc(574 / 604 * 100% + 10px);
+      left: calc(973.61 / 1190 * 100% - 51px);
+    }
+    &:nth-child(27) {
+      font-size: 16px;
+      top: calc(496.74 / 604 * 100% - 18px);
+      left: calc(984.5 / 1190 * 100% - 51px); // ХАБАРОВСК
+      &::after {
+        top: 18px;
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+@import 'nullstyle.scss';
+@import 'fonts.scss';
+
+body {
+  font-family: 'Proxima Nova Condensed', 'sans-serif';
+  font-size: 18px;
+  font-weight: 600;
+  color: #444444;
+}
+// Общие классы
+.wrapper {
+  margin: 0 15px;
+}
+._container {
+  max-width: 1250px;
+  padding: 0 70px;
+  margin: 0 auto;
+  @media (max-width: 1023px) {
+    padding: 0 35px;
+  }
+  @media (max-width: 767px) {
+    padding: 0 5px;
+  }
+}
+._imgbg {
+  position: relative;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+._title {
+  font-size: 56px;
+  @media (max-width: 1023px) {
+    font-size: 42px;
+    line-height: 42px;
+  }
+  @media (max-width: 767px) {
+    font-size: 28px;
+    line-height: 28px;
+  }
+  line-height: 100%;
+  font-weight: 600;
+}
+._ovh {
+  overflow: hidden;
+}
+// header
+.header {
+  &__top {
+    border: 1px solid #d9d9d9;
+    &_body {
+      height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      @media (max-width: 1023px) {
+        > * {
+          flex: 0 1 100%;
+        }
+      }
+    }
+  }
+  &__logo {
+  }
+  &__menu {
+  }
+  &__banner {
+    z-index: 0;
+    &_body {
+      position: relative;
+      z-index: 1;
+      padding: 158px 0;
+      @media (max-width: 1023px) {
+        padding: 110px 0;
+      }
+      @media (max-width: 767px) {
+        padding: 40px 0 76px 0;
+      }
+    }
+  }
+  &__title {
+    max-width: 709px;
+  }
+  &__button {
+    display: inline-block;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 18px 28px;
+    margin-top: 60px;
+    transition: background-color 0.3s ease 0s;
+    &:hover {
+      background-color: #d43152;
+    }
+    @media (max-width: 1023px) {
+      margin-top: 40px;
+      padding: 10px 27px;
+    }
+    @media (max-width: 767px) {
+      margin-top: 20px;
+      padding: 6.5px 25.5px;
+      font-size: 16px;
+      line-height: 19.49px;
+    }
+    background-color: #b01736;
+    border-radius: 8px;
+  }
+}
+
+.menu-header {
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-right: 20px;
+      @media (max-width: 767px) {
+        margin-right: 10px;
+      }
+    }
+    line-height: 20px;
+    @media (max-width: 1023px) {
+      font-size: 16px;
+      line-height: 18px;
+    }
+    @media (max-width: 767px) {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+}
+// content
+.content {
+}
+@import 'blocks/about';
+@import 'blocks/advs';
+@import 'blocks/corp-life';
+@import 'blocks/dirbuis';
+@import 'blocks/mission';
+@import 'blocks/offices';
