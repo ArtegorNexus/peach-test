@@ -42,4 +42,10 @@ const toChangeRegion = (event) => {
   }
 };
 
+const toSwipeMap = (event) => {
+  event.preventDefault();
+  map.scrollLeft += event.deltaY;
+};
+
+map.addEventListener('wheel', (event) => toSwipeMap(event));
 regions.addEventListener('click', (event) => toChangeRegion(event));
