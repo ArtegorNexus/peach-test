@@ -5,8 +5,8 @@ let mapImg = map.querySelector('img');
 let mapMenu = document.querySelector('.menu-offices-top__items');
 
 let topMenu = document.querySelector('.menu-offices-top');
+let posMapStart = 0;
 let posMenuStart = 0;
-let posMenuEnd = 0;
 
 let regions = document.querySelector('.menu-offices-top__items');
 let cities = document.querySelectorAll('.map-offices__city');
@@ -49,7 +49,8 @@ const toChangeRegion = (event) => {
 const toSwipeMap = (event) => {
   if (map.clientWidth - map.scrollWidth < 0) {
     event.preventDefault();
-    map.scrollLeft += posMenuStart - event.changedTouches[0].clientX;
+    map.scrollLeft += posMapStart - event.changedTouches[0].clientX;
+    posMapStart = event.changedTouches[0].clientX;
   }
 };
 
@@ -57,15 +58,23 @@ const toSwipeMenu = (event) => {
   if (topMenu.clientWidth - topMenu.scrollWidth < 0) {
     event.preventDefault();
     topMenu.scrollLeft += posMenuStart - event.changedTouches[0].clientX;
+    posMenuStart = event.changedTouches[0].clientX;
+  }
+};
+
+const mapScrollByWheel = (event) => {
+  if (map.clientWidth - map.scrollWidth < 0) {
+    event.preventDefault();
+    map.scrollLeft += event.deltaY;
   }
 };
 
 regions.addEventListener('click', (event) => toChangeRegion(event));
 
+map.addEventListener('wheel', (event) => mapScrollByWheel(event));
+
 map.addEventListener('touchmove', (event) => toSwipeMap(event));
-map.addEventListener('touchstart', (event) => (posMenuStart = event.changedTouches[0].clientX));
-map.addEventListener('touchend', (event) => (posMenuEnd = event.changedTouches[0].clientX));
+map.addEventListener('touchstart', (event) => (posMapStart = event.changedTouches[0].clientX));
 
 topMenu.addEventListener('touchmove', (event) => toSwipeMenu(event));
 topMenu.addEventListener('touchstart', (event) => (posMenuStart = event.changedTouches[0].clientX));
-topMenu.addEventListener('touchend', (event) => (posMenuEnd = event.changedTouches[0].clientX));
