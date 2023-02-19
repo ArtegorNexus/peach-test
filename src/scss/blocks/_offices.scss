@@ -186,6 +186,7 @@
       transition: all 0.3s ease 0s;
     }
     &._active {
+      color: #a30c33;
       &::after {
         width: 100%;
       }
