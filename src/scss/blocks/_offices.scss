@@ -142,12 +142,10 @@
     max-width: 518px;
     width: 100%;
     overflow: hidden;
-    scroll-snap-type: x mandatory;
   }
   &__body {
     @media (max-width: 767px) {
       width: 518px;
-      scroll-snap-align: start;
     }
   }
   &__items {

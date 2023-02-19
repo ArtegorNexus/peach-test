@@ -4,6 +4,10 @@ let map = document.querySelector('.map-offices__body');
 let mapImg = map.querySelector('img');
 let mapMenu = document.querySelector('.menu-offices-top__items');
 
+let topMenu = document.querySelector('.menu-offices-top');
+let posMenuStart = 0;
+let posMenuEnd = 0;
+
 let regions = document.querySelector('.menu-offices-top__items');
 let cities = document.querySelectorAll('.map-offices__city');
 let regionsName = ['msk', 'cntr', 'sevzap', 'south', 'vlg', 'ural', 'sbr', 'dv'];
@@ -45,9 +49,23 @@ const toChangeRegion = (event) => {
 const toSwipeMap = (event) => {
   if (map.clientWidth - map.scrollWidth < 0) {
     event.preventDefault();
-    map.scrollLeft += event.deltaY;
+    map.scrollLeft += posMenuStart - event.changedTouches[0].clientX;
   }
 };
 
-map.addEventListener('wheel', (event) => toSwipeMap(event));
+const toSwipeMenu = (event) => {
+  if (topMenu.clientWidth - topMenu.scrollWidth < 0) {
+    event.preventDefault();
+    topMenu.scrollLeft += posMenuStart - event.changedTouches[0].clientX;
+  }
+};
+
 regions.addEventListener('click', (event) => toChangeRegion(event));
+
+map.addEventListener('touchmove', (event) => toSwipeMap(event));
+map.addEventListener('touchstart', (event) => (posMenuStart = event.changedTouches[0].clientX));
+map.addEventListener('touchend', (event) => (posMenuEnd = event.changedTouches[0].clientX));
+
+topMenu.addEventListener('touchmove', (event) => toSwipeMenu(event));
+topMenu.addEventListener('touchstart', (event) => (posMenuStart = event.changedTouches[0].clientX));
+topMenu.addEventListener('touchend', (event) => (posMenuEnd = event.changedTouches[0].clientX));
